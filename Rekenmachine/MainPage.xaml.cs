@@ -216,7 +216,7 @@ namespace Rekenmachine
 
         private void PuntButton_Click(object sender, RoutedEventArgs e)
         {
-            ResultTextBox.Text += ","; history += ",";
+            ResultTextBox.Text += "."; history += ".";
         }
 
         private void PosNegButton_Click(object sender, RoutedEventArgs e)
