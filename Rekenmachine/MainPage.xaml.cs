@@ -131,6 +131,7 @@ namespace Rekenmachine
             InputTextBox.Text = "";
             num1 = 0;
             num2 = 0;
+            history = "";
         }
 
         private void ButtonClear_Click(object sender, RoutedEventArgs e)
@@ -143,6 +144,7 @@ namespace Rekenmachine
             try
             {
                 ResultTextBox.Text = ResultTextBox.Text.Remove(ResultTextBox.Text.Length - 1);
+                history = history.Remove(history.Length - 1);
             }
             catch (Exception)
             {
@@ -228,6 +230,12 @@ namespace Rekenmachine
         private void ClearHistoryButton_Click(object sender, RoutedEventArgs e)
         {
             GeschiedenisTextBox.Items.Clear();
+        }
+
+        private void ButtonClearAll_Click(object sender, RoutedEventArgs e)
+        {
+            Reset();
+            ClearHistoryButton_Click(sender, e);
         }
     }
 }
