@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="GridButtons.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GridButtons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Button Name="Button1" Background="Blue" Click="Button_Click">Button 1</Button>
+            <Button Name="Button2" Background="Red" Click="Button_Click_1">Button 2</Button>
+            <Button Name="Button3" Background="Green" Click="Button_Click_2">Button 3</Button>
+            <Button Name="Button4" Background="Yellow" Click="Button_Click_3">Button 4</Button>
+        </StackPanel>
+    </Grid>
+</Page>

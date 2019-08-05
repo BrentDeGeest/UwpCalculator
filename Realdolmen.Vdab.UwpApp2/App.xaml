@@ -1,0 +1,9 @@
+﻿<Application
+    x:Class="Realdolmen.Vdab.UwpApp2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Realdolmen.Vdab.UwpApp2">
+    <Application.Resources>
+        <x:String x:Key="HelloWorld">Hello World!</x:String>
+    </Application.Resources>
+</Application>

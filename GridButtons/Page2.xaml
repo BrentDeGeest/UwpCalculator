@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="GridButtons.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GridButtons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="Button1" Grid.Row="0" Grid.Column="0" Background="Blue"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Button_Click_1">Button 1</Button>
+        <Button Name="Button2" Grid.Row="0" Grid.Column="1" Background="Red"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Button_Click_2">Button 2</Button>
+        <Button Name="Button3" Grid.Row="1" Grid.Column="0" Background="Green"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Button_Click_3">Button 3</Button>
+        <Button Name="Button4" Grid.Row="1" Grid.Column="1" Background="Yellow"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Button_Click_4">Button 4</Button>
+    </Grid>
+</Page>
