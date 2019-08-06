@@ -37,6 +37,8 @@ namespace Rekenmachine
         string history;
         bool inputNumber = false;
 
+
+
         private void GetNumber() // Zet num1 of num2 op het nummer in de textbox
         {
             string[] nummers = ResultTextBox.Text.Split(delimiterChars);
@@ -236,6 +238,43 @@ namespace Rekenmachine
         {
             Reset();
             ClearHistoryButton_Click(sender, e);
+        }
+
+        private void FileWriter()
+        {
+            string path = @"C:\Users\Public\history.txt";
+            File.WriteAllText(path, "s");
+        }
+
+        private async void SaveHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            Windows.Storage.StorageFile ticketsFile =
+            await storageFolder.CreateFileAsync("tickets.txt",
+                Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            //Windows.Storage.StorageFile storageFile = await storageFolder.GetFileAsync("tickets.txt");
+
+            foreach (string item in GeschiedenisTextBox.Items.ToArray())
+            {
+                await Windows.Storage.FileIO.AppendTextAsync(ticketsFile, item + ";");
+            }
+        }
+
+        private async void LoadHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            GeschiedenisTextBox.Items.Clear();
+            Windows.Storage.StorageFolder storageFolder =
+            Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile ticketsFile =
+                await storageFolder.GetFileAsync("tickets.txt");
+
+            string savedTickets = await Windows.Storage.FileIO.ReadTextAsync(ticketsFile);
+            string[] allItems = savedTickets.Split(";");
+            foreach (var item in allItems)
+            {
+                GeschiedenisTextBox.Items.Add(item);
+            }
         }
     }
 }
