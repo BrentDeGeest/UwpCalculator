@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="ModelView.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ModelView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Realdolmen.Vdab.Uwp"
+    mc:Ignorable="d"
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style x:Key="BasicTextBox" TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="FontSize" Value="20*"/>
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="Margin" Value="5,5"/>
+        </Style>
+        <Style x:Key="BasicTextBlock" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="20*"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock  Grid.Row="0" Style="{StaticResource BasicTextBlock}">First Name:</TextBlock>
+        <TextBlock Grid.Row="1" Style="{StaticResource BasicTextBlock}">Last Name:</TextBlock>
+        <TextBlock  Grid.Row="2" Style="{StaticResource BasicTextBlock}">Date of birth:</TextBlock>
+        <StackPanel Grid.Row="3">
+            <Button FontSize="20*" BorderBrush="Blue" Click="Button_Change">Change Person</Button>
+            <Button FontSize="20*" BorderBrush="Blue" Click="Button_Add">Add Person</Button>
+        </StackPanel>
+        
+        <TextBox Name="FirstNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="0" Text="{x:Bind MemberViewModel.FirstName, Mode=TwoWay}" />
+        <TextBox Name="LastNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="1" Text="{x:Bind MemberViewModel.LastName, Mode=TwoWay}"/>
+        <CalendarDatePicker Name="BdayPicker" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                    Grid.Row="2" Grid.Column="1" FontSize="20*" BorderBrush="Blue" Margin="5, 5"
+                    Date="{x:Bind MemberViewModel.BirthDate, Mode=TwoWay}"/>
+        <ListView Name="MemberList" Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" >
+            
+        </ListView>
+    </Grid>
+</Page>

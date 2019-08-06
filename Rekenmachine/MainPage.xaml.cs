@@ -250,14 +250,14 @@ namespace Rekenmachine
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-            Windows.Storage.StorageFile ticketsFile =
-            await storageFolder.CreateFileAsync("tickets.txt",
+            Windows.Storage.StorageFile historyFile =
+            await storageFolder.CreateFileAsync("history.txt",
                 Windows.Storage.CreationCollisionOption.ReplaceExisting);
             //Windows.Storage.StorageFile storageFile = await storageFolder.GetFileAsync("tickets.txt");
 
             foreach (string item in GeschiedenisTextBox.Items.ToArray())
             {
-                await Windows.Storage.FileIO.AppendTextAsync(ticketsFile, item + ";");
+                await Windows.Storage.FileIO.AppendTextAsync(historyFile, item + ";");
             }
         }
 
@@ -266,11 +266,11 @@ namespace Rekenmachine
             GeschiedenisTextBox.Items.Clear();
             Windows.Storage.StorageFolder storageFolder =
             Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile ticketsFile =
-                await storageFolder.GetFileAsync("tickets.txt");
+            Windows.Storage.StorageFile historyFile =
+                await storageFolder.GetFileAsync("history.txt");
 
-            string savedTickets = await Windows.Storage.FileIO.ReadTextAsync(ticketsFile);
-            string[] allItems = savedTickets.Split(";");
+            string savedHistory = await Windows.Storage.FileIO.ReadTextAsync(historyFile);
+            string[] allItems = savedHistory.Split(";");
             foreach (var item in allItems)
             {
                 GeschiedenisTextBox.Items.Add(item);
