@@ -28,13 +28,14 @@ namespace ModelView
         private void MemberViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             //Model.UpdateMember(((MemberViewModel)sender).Model);
+
         }
 
         public string OrganizationName
         {
             get => Model.Name;
             set => SetProperty(Model.Name, value, () => Model.Name = value);
-        }
+        } 
         public MemberViewModel SelectedMember
         {
             get => _selectedMember;

@@ -14,7 +14,7 @@ namespace ModelView
         public OrganizationModel(string name)
         {
             Name = name;
-            //Members = MemberService.GetMembers();
+           // Members = MemberService.GetMembers();
         }
 
         public void AddMember(Member member)
@@ -22,6 +22,7 @@ namespace ModelView
             if(!Members.Any(m => m.MemberIdentification == member.MemberIdentification))
             {
                 Members.Add(member);
+                
                 //MemberService.Add(member);
             }
         }

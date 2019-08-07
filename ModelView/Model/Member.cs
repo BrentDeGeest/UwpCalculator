@@ -12,5 +12,13 @@ namespace ModelView
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTimeOffset BirthDate { get; set; }
+
+       // Member((string memberIdentification, string firstName, string lastName, DateTimeOffset birthDate)
+        //{
+        //    MemberIdentification = memberIdentification;
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    BirthDate = birthDate;
+        //}
     }
 }

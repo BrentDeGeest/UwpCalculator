@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelView
 {
-    class MemberService
+    public class MemberService
     {
         public void GetMembers()
         {

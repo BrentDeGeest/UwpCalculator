@@ -38,7 +38,7 @@ namespace ModelView
         {
             MemberViewModel.FirstName = "Jeff";
             MemberViewModel.LastName = "Jefferson";
-            MemberViewModel.BirthDate = new DateTimeOffset(new DateTime(1990, 1, 1));
+            MemberViewModel.BirthDate = new DateTimeOffset(new DateTime(1990,1,1));
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
