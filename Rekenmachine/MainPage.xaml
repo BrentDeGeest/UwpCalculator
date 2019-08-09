@@ -52,25 +52,25 @@
            
         </Grid.ColumnDefinitions>
 
-        <Button Name="Button1" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="5" Click="Button1_Click">1</Button>
-        <Button Name="Button2" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="5" Click="Button2_Click">2</Button>
-        <Button Name="Button3" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="5" Click="Button3_Click">3</Button>
-        <Button Name="Button4" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="4" Click="Button4_Click">4</Button>
-        <Button Name="Button5" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="4" Click="Button5_Click">5</Button>
-        <Button Name="Button6" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="4" Click="Button6_Click">6</Button>
-        <Button Name="Button7" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="3" Click="Button7_Click">7</Button>
-        <Button Name="Button8" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="3" Click="Button8_Click">8</Button>
-        <Button Name="Button9" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="3" Click="Button9_Click">9</Button>
-        <Button Name="Button0" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="6" Click="Button0_Click">0</Button>
+        <Button Name="Button1" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="5" Click="Button_Click">1</Button>
+        <Button Name="Button2" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="5" Click="Button_Click">2</Button>
+        <Button Name="Button3" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="5" Click="Button_Click">3</Button>
+        <Button Name="Button4" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="4" Click="Button_Click">4</Button>
+        <Button Name="Button5" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="4" Click="Button_Click">5</Button>
+        <Button Name="Button6" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="4" Click="Button_Click">6</Button>
+        <Button Name="Button7" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="3" Click="Button_Click">7</Button>
+        <Button Name="Button8" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="3" Click="Button_Click">8</Button>
+        <Button Name="Button9" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="3" Click="Button_Click">9</Button>
+        <Button Name="Button0" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="6" Click="Button_Click">0</Button>
         <Button Name="ButtonNegPos" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="6" Click="PosNegButton_Click">+-</Button>
         <Button Name="ButtonKomma" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="6" Click="PuntButton_Click">.</Button>
         <Button Name="ButtonGelijkAan" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="6" Click="GelijkButton_Click">=</Button>
-        <Button Name="ButtonPlus" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="5" Click="PlusButton_Click">+</Button>
-        <Button Name="ButtonMin" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="4" Click="MinButton_Click">-</Button>
-        <Button Name="ButtonMaal" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="3" Click="MaalButton_Click">x</Button>
-        <Button Name="ButtonDelen" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="2" Click="DeelButton_Click">/</Button>
-        <Button Name="ButtonDelete" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="2" Content="&lt;--" Click="DeleteButton_Click"></Button>
-        <Button Name="ButtonClear" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="2" Click="ButtonClear_Click">C</Button>
+        <Button Name="ButtonPlus" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="5" Click="Button_Click">+</Button>
+        <Button Name="ButtonMin" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="4" Click="Button_Click">-</Button>
+        <Button Name="ButtonMaal" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="3" Click="Button_Click">x</Button>
+        <Button Name="ButtonDelen" Style="{StaticResource BasicButton}" Grid.Column="3" Grid.Row="2" Click="Button_Click">/</Button>
+        <Button Name="ButtonDelete" Style="{StaticResource BasicButton}" Grid.Column="2" Grid.Row="2" Content="&lt;--" Click="Button_Click"></Button>
+        <Button Name="ButtonClear" Style="{StaticResource BasicButton}" Grid.Column="1" Grid.Row="2" Click="Button_Click">C</Button>
         <Button Name="ButtonClearAll" Style="{StaticResource BasicButton}" Grid.Column="0" Grid.Row="2" Click="ButtonClearAll_Click" ToolTipService.ToolTip="Clears everything(including the history)">CE</Button>
         <TextBox Name="ResultTextBox" Style="{StaticResource BasicTextBox}" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" 
                  PlaceholderText="Input" IsReadOnly="True" FontSize="30"></TextBox>

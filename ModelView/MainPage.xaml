@@ -5,7 +5,7 @@
     xmlns:local="using:ModelView"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="using:Realdolmen.Vdab.Uwp"
+    xmlns:viewModels="using:ModelView"
     mc:Ignorable="d"
     
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,7 +23,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="FontSize" Value="20*"/>
             <Setter Property="Grid.Column" Value="0"/>
-            
+
         </Style>
     </Page.Resources>
     <Grid>
@@ -43,21 +43,27 @@
         <TextBlock Grid.Row="1" Style="{StaticResource BasicTextBlock}">Last Name:</TextBlock>
         <TextBlock  Grid.Row="2" Style="{StaticResource BasicTextBlock}">Date of birth:</TextBlock>
         <StackPanel Grid.Row="3">
-            <Button FontSize="20*" BorderBrush="Blue" Click="Button_Change">Change Person</Button>
-            <Button FontSize="20*" BorderBrush="Blue" Click="Button_Add">Add Person</Button>
+            <Button FontSize="20*" BorderBrush="Blue" Margin="0,5" HorizontalAlignment="Stretch" Command="{x:Bind OrganizationViewModel.AddMemberCommand}">Add Person</Button>
+            <Button FontSize="20*" BorderBrush="Blue" Margin="0,5" HorizontalAlignment="Stretch" Command="{x:Bind OrganizationViewModel.RemoveMemberCommand}">Remove Person</Button>
         </StackPanel>
-        
-        <TextBox Name="FirstNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="0" Text="{x:Bind MemberViewModel.FirstName, Mode=TwoWay}" />
-        <TextBox Name="LastNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="1" Text="{x:Bind MemberViewModel.LastName, Mode=TwoWay}"/>
+
+        <TextBox Name="FirstNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="0" Text="{x:Bind OrganizationViewModel.SelectedMember.FirstName, Mode=TwoWay}" />
+        <TextBox Name="LastNameTxt" Style="{StaticResource BasicTextBox}" Grid.Row="1" Text="{x:Bind OrganizationViewModel.SelectedMember.LastName, Mode=TwoWay}"/>
         <CalendarDatePicker Name="BdayPicker" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                     Grid.Row="2" Grid.Column="1" FontSize="20*" BorderBrush="Blue" Margin="5, 5"
-                    Date="{x:Bind MemberViewModel.BirthDate, Mode=TwoWay}"/>
-        <ListView Name="MemberList" Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" >
-            <StackPanel>
-                <TextBlock Text="{x:Bind FirstNameTxt}"/>
-                <TextBlock Text="{x:Bind LastNameTxt}"/>
-                <TextBlock Text="{x:Bind BdayPicker}"/>
-            </StackPanel>
+                    Date="{x:Bind OrganizationViewModel.SelectedMember.BirthDate, Mode=TwoWay}"/>
+        <ListView Name="MemberList" Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" ItemsSource="{x:Bind OrganizationViewModel.Members, Mode=OneWay}" SelectedItem="{x:Bind OrganizationViewModel.SelectedMember, Mode=TwoWay}"  >
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:MemberViewModel">
+                    <StackPanel>
+                        <!--<TextBlock Text="{x:Bind FullName, Mode=OneWay}"></TextBlock>-->
+                        <TextBlock Text="{x:Bind FirstName, Mode=OneWay}" ></TextBlock>
+                        <TextBlock Text="{x:Bind LastName, Mode=OneWay}"></TextBlock>
+                        <TextBlock Text="{x:Bind BirthDate.Date.ToShortDateString(), Mode=OneWay}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+3.2.000000
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -48,83 +49,37 @@ namespace Rekenmachine
             }
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ResultTextBox.Text.Length < 10 || num1 != 0)
-                ResultTextBox.Text += '1'; history += "1";
-            inputNumber = true;
-        }
+            Button button = sender as Button;
 
-        private void Button2_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '2'; history += "2";
-            inputNumber = true;
+            switch (button.Name)
+            {
+                case "Button1": ResultTextBox.Text += '1'; history += "1"; inputNumber = true; break;
+                case "Button2": ResultTextBox.Text += '2'; history += "2"; inputNumber = true; break;
+                case "Button3": ResultTextBox.Text += '3'; history += "3"; inputNumber = true; break;
+                case "Button4": ResultTextBox.Text += '4'; history += "4"; inputNumber = true; break;
+                case "Button5": ResultTextBox.Text += '5'; history += "5"; inputNumber = true; break;
+                case "Button6": ResultTextBox.Text += '6'; history += "6"; inputNumber = true; break;
+                case "Button7": ResultTextBox.Text += '7'; history += "7"; inputNumber = true; break;
+                case "Button8": ResultTextBox.Text += '8'; history += "8"; inputNumber = true; break;
+                case "Button9": ResultTextBox.Text += '9'; history += "9"; inputNumber = true; break;
+                case "Button0": ResultTextBox.Text += '0'; history += "0"; inputNumber = true; break;
+                case "ButtonClear": Reset(); break;
+                case "ButtonDelete": try { ResultTextBox.Text = ResultTextBox.Text.Remove                                           (ResultTextBox.Text.Length - 1);
+                        history = history.Remove(history.Length - 1); } catch(Exception) {} break;
 
-        }
-
-        private void Button3_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '3'; history += "3";
-            inputNumber = true;
-
-        }
-
-        private void Button4_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '4'; history += "4";
-            inputNumber = true;
-
-        }
-
-        private void Button5_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '5'; history += "5";
-            inputNumber = true;
-
-        }
-
-        private void Button6_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '6'; history += "6";
-            inputNumber = true;
-
-        }
-
-        private void Button7_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '7'; history += "7";
-            inputNumber = true;
-
-        }
-
-        private void Button8_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '8'; history += "8";
-            inputNumber = true;
-
-        }
-
-        private void Button9_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '9'; history += "9";
-            inputNumber = true;
-
-        }
-
-        private void Button0_Click(object sender, RoutedEventArgs e)
-        {
-            if (ResultTextBox.Text.Length < 10)
-                ResultTextBox.Text += '0'; history += "0";
-            inputNumber = true;
-
+                case "ButtonDelen": GetNumber(); oper = "/"; InputTextBox.Text = num1.ToString() + " / ";
+                                    ResultTextBox.Text = ""; history += " / "; break;
+                case "ButtonMaal": GetNumber(); oper = "*"; InputTextBox.Text = num1.ToString() + " * ";
+                                   ResultTextBox.Text = ""; history += " * "; break;
+                case "ButtonPlus": GetNumber(); oper = "+"; InputTextBox.Text = num1.ToString() + " + ";
+                    ResultTextBox.Text = ""; history += " + "; break;
+                case "ButtonMin": GetNumber(); oper = "-"; InputTextBox.Text = num1.ToString() + " - ";
+                    ResultTextBox.Text = ""; history += " - "; break;
+                default:
+                    break;
+            }
         }
 
         private void Reset()
@@ -134,64 +89,6 @@ namespace Rekenmachine
             num1 = 0;
             num2 = 0;
             history = "";
-        }
-
-        private void ButtonClear_Click(object sender, RoutedEventArgs e)
-        {
-            Reset();
-        }
-
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ResultTextBox.Text = ResultTextBox.Text.Remove(ResultTextBox.Text.Length - 1);
-                history = history.Remove(history.Length - 1);
-            }
-            catch (Exception)
-            {
-                // Doe niets wanneer er geen nummers meers zijn om te verwijderen.
-            }
-        }
-
-        private void DeelButton_Click(object sender, RoutedEventArgs e)
-        {
-            GetNumber();
-
-            oper = "/";
-            InputTextBox.Text = num1.ToString() + " / ";
-            ResultTextBox.Text = ""; history += " / ";
-        }
-
-        private void MaalButton_Click(object sender, RoutedEventArgs e)
-        {
-            GetNumber();
-
-            oper = "*";
-            InputTextBox.Text = num1.ToString() + " * ";
-            ResultTextBox.Text = ""; history += " * ";
-        }
-
-        private void MinButton_Click(object sender, RoutedEventArgs e)
-        {
-            GetNumber();
-
-            oper = "-";
-            InputTextBox.Text = num1.ToString() + " - ";
-            ResultTextBox.Text = ""; history += " - ";
-        }
-
-        private void PlusButton_Click(object sender, RoutedEventArgs e)
-        {
-            GetNumber();
-            if(num2 != 0)
-            {
-                GelijkButton_Click(sender, e);
-            }
-            oper = "+";
-            InputTextBox.Text = num1.ToString() + " + ";
-            ResultTextBox.Text = "";
-            history += " + ";
         }
 
         private void GelijkButton_Click(object sender, RoutedEventArgs e)

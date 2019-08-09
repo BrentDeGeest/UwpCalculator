@@ -9,7 +9,7 @@ namespace ModelView
     public sealed class MemberViewModel : BaseViewModel<Member>
     {
         public MemberViewModel(Member model) : base(model) { }
-
+        public string FullName { get => FirstName + " " + LastName; }
         public string MemberIdentification
         {
             get => Model.MemberIdentification;
@@ -18,17 +18,17 @@ namespace ModelView
         public string FirstName
         {
             get => Model.FirstName;
-                set=> SetProperty(Model.FirstName , value, () => Model.FirstName = value);
+            set => SetProperty(Model.FirstName, value, () => Model.FirstName = value);
         }
-    public string LastName
-    {
+        public string LastName
+        {
             get => Model.LastName;
-            set=> SetProperty(Model.LastName , value, () => Model.LastName = value);
-    }
-    public DateTimeOffset BirthDate
-    {
+            set => SetProperty(Model.LastName, value, () => Model.LastName = value);
+        }
+        public DateTimeOffset BirthDate
+        {
             get => Model.BirthDate;
-            set=> SetProperty(Model.BirthDate , value, () => Model.BirthDate = value);
+            set => SetProperty(Model.BirthDate, value, () => Model.BirthDate = value);
+        }
     }
-}
 }
