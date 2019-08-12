@@ -5,10 +5,35 @@
     xmlns:local="using:Realdolmen.Vdab.UwpApp.BooksApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Realdolmen.Vdab.UwpApp.BooksApp"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBox Text="{x:Bind BibViewModel.SelectedBook.Naam, Mode=TwoWay}" PlaceholderText="Naam"></TextBox>
+            <TextBox Text="{x:Bind BibViewModel.SelectedBook.Auteur, Mode=TwoWay}" PlaceholderText="Auteur"></TextBox>
+            <TextBox Text="{x:Bind BibViewModel.SelectedBook.Nummer,  Mode=TwoWay}" PlaceholderText="Nummer"></TextBox>
+            <Button Name="AddBookBut" Command="{x:Bind BibViewModel.AddBookCommand}">Add Person</Button>
+            <Button Name="RemoveBookBut" Command="{x:Bind BibViewModel.RemoveBookCommand}">Remove Person</Button>
+        </StackPanel>
+        <ListView Name="BookList" Grid.Column="1" ItemsSource="{x:Bind BibViewModel.Boeken, Mode=OneWay}" SelectedItem="{x:Bind BibViewModel.SelectedBook, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:View">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Naam, Mode=OneWay}"/>
+                        <TextBlock Text="{x:Bind Auteur, Mode=OneWay}"/>
+                        <TextBlock Text="{x:Bind Nummer, Mode=OneWay}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

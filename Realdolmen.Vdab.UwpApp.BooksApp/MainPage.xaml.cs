@@ -22,6 +22,10 @@ namespace Realdolmen.Vdab.UwpApp.BooksApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        public BibliotheekViewModel BibViewModel = new BibliotheekViewModel
+            (new BibliotheekModel("test"));
+
         public MainPage()
         {
             this.InitializeComponent();

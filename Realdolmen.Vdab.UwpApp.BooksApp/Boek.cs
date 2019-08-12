@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Realdolmen.Vdab.UwpApp.BooksApp
 {
-    class Model
+    public class Boek
     {
-        // Product/item zelf (boek)
+        public string Naam { get; set; }
+        public string Nummer { get; set; }
+        public string Auteur { get; set; }
     }
 }
